@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MicInput from '../components/MicInput';
-//import { } from '../actions';
+import { triggerSearch } from '../actions';
 
 
 function mapStateToProps(state) {
@@ -11,9 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-//        onAddSubreddit: (subreddit) => {
-//            dispatch(addSubreddit(subreddit));
-//        },
+       triggerSearch: (query) => {
+           dispatch(triggerSearch(query));
+       },
   }
 }
 

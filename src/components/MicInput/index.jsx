@@ -9,10 +9,15 @@ class MicInput extends React.Component {
     this.state = {};
 
     this.startRec = this.startRec.bind(this);
+    this.recResult = this.recResult.bind(this);
   }
 
   startRec() {
-    this.props.speechUtil.startRecognition();
+    this.props.speechUtil.startRecognition(this.recResult);
+  }
+
+  recResult(query) {
+    this.props.triggerSearch(query);
   }
 
   render() {

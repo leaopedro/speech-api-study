@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SearchBox from '../components/SearchBox';
+import SearchBox from '../components/InputBox';
 //import { } from '../actions';
 
 

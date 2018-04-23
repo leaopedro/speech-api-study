@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import Switcher from './../Switcher';
+import MessagesContainer from './../../containers/MessagesContainer';
 
 import './style.less';
 
-class SearchBox extends React.Component {
+class InputBox extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +16,8 @@ class SearchBox extends React.Component {
 
   render() {
     return (
-      <section className="search-box-container">
+      <section className="input-box-container">
+        <MessagesContainer />
         <Switcher speechUtil={this.speechUtil} />
       </section>
     );
@@ -23,9 +25,9 @@ class SearchBox extends React.Component {
 
 }
 
-SearchBox.propTypes = {
+InputBox.propTypes = {
 
 };
 
 
-export default SearchBox;
+export default InputBox;
