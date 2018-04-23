@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import KeyboardInput from '../components/KeyboardInput';
+import {receiveMessage, triggerSearch} from "../actions";
 //import { } from '../actions';
 
 
@@ -11,9 +12,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-//        onAddSubreddit: (subreddit) => {
-//            dispatch(addSubreddit(subreddit));
-//        },
+    triggerSearch: (query) => {
+      dispatch(triggerSearch(query));
+      dispatch(receiveMessage({text: query, author: 'user'}));
+    },
   }
 }
 

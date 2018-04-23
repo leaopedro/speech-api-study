@@ -10,6 +10,7 @@ class KeyboardInput extends React.Component {
     };
 
     this.onChangeField = this.onChangeField.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   onChangeField(e) {
@@ -17,11 +18,16 @@ class KeyboardInput extends React.Component {
     this.setState({ query: val });
   }
 
+  sendMessage() {
+    this.props.triggerSearch(this.state.query);
+    this.setState({query: ''});
+  }
+
   render() {
     return (
       <div className="keyboard-input-container">
         <input className='keyboard-input' type='text' value={this.state.query} onChange={this.onChangeField} />
-        <button className='send-btn'>
+        <button className='send-btn' onClick={this.sendMessage}>
           <i className="fas fa-caret-right"></i>
         </button>
       </div>

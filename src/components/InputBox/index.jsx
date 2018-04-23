@@ -18,7 +18,7 @@ class InputBox extends React.Component {
     return (
       <section className="input-box-container">
         <MessagesContainer />
-        <Switcher speechUtil={this.speechUtil} />
+        <Switcher />
       </section>
     );
   }

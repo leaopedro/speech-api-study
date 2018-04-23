@@ -18,6 +18,7 @@ class Switcher extends React.Component {
   }
   switch(e) {
     if (this.state.input === 'mic') {
+      this.speechUtil.stopRecognition(false);
       this.setState({input: 'keyboard'});
     } else {
       this.setState({input: 'mic'});

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MicInput from '../components/MicInput';
-import { triggerSearch } from '../actions';
+import { triggerSearch, receiveMessage } from '../actions';
 
 
 function mapStateToProps(state) {
@@ -13,6 +13,7 @@ function mapDispatchToProps(dispatch) {
   return {
        triggerSearch: (query) => {
            dispatch(triggerSearch(query));
+           dispatch(receiveMessage({text: query, author: 'user'}));
        },
   }
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import productList from './productList';
+import messages from './messages';
 
 const rootReducer = combineReducers({
-    productList
+  messages
 });
 
 export default rootReducer;

@@ -5,7 +5,8 @@ import Messages from '../components/Messages';
 
 function mapStateToProps(state) {
   return {
-
+    messages: state.messages.messageList,
+    updatedAt: state.messages.updatedAt
   };
 }
 

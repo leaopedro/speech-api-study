@@ -6,7 +6,9 @@ class MicInput extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isRecording: false
+    };
 
     this.startRec = this.startRec.bind(this);
     this.recResult = this.recResult.bind(this);
@@ -14,15 +16,20 @@ class MicInput extends React.Component {
 
   startRec() {
     this.props.speechUtil.startRecognition(this.recResult);
+    this.setState({isRecording: true});
   }
 
   recResult(query) {
-    this.props.triggerSearch(query);
+    if (query) {
+      this.props.triggerSearch(query);
+    }
+    this.setState({isRecording: false});
   }
 
   render() {
+    const recClass = (this.state.isRecording)? 'rec' : '';
     return (
-      <div className="mic-input-container">
+      <div className={`mic-input-container ${recClass}`}>
         <div className='mic-button rounded-circle' onClick={this.startRec}>
           <i className="fas fa-microphone"></i>
         </div>

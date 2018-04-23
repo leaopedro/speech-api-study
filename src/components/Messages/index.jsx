@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-
+import MessageItem from './MessageItem';
 import './style.less';
 
 class Messages extends React.Component {
@@ -13,9 +13,13 @@ class Messages extends React.Component {
   }
 
   render() {
+    const items = this.props.messages.map((m, i) => {
+      return (<MessageItem key={i} message={m}/>);
+    });
+    console.log(items);
     return (
       <div className='messages-container'>
-
+        {items}
       </div>
     );
   }
