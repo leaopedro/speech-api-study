@@ -11,9 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-//        onAddSubreddit: (subreddit) => {
-//            dispatch(addSubreddit(subreddit));
-//        },
+       // initSpeechService: () => {
+       //     dispatch(addSubreddit(subreddit));
+       // },
     }
 }
 

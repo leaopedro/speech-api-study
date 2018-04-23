@@ -9,13 +9,14 @@ class SearchBox extends React.Component {
     super(props);
     this.state = {};
 
+
 //        this.onSubmit = this.onSubmit.bind(this);
   }
 
   render() {
     return (
       <section className="search-box-container">
-        <Switcher />
+        <Switcher speechUtil={this.speechUtil} />
       </section>
     );
   }
