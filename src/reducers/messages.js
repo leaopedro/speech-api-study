@@ -1,5 +1,4 @@
-
-import { RECEIVE_MESSAGE } from '../actions';
+import {RECEIVE_MESSAGE} from '../actions';
 
 const defaultState = {
   messageList: [],
@@ -9,7 +8,7 @@ const defaultState = {
 export default function messages(state = defaultState, action) {
   switch (action.type) {
     case RECEIVE_MESSAGE:
-      console.log(RECEIVE_MESSAGE);
+      console.log(RECEIVE_MESSAGE, action.message);
       const newSt = Object.assign({}, state);
       newSt.updatedAt = Date.now();
       newSt.messageList.push(action.message);

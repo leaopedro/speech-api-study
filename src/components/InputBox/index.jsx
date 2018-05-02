@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Switcher from './../Switcher';
 import MessagesContainer from './../../containers/MessagesContainer';
+import Header from './../Header';
 
 import './style.less';
 
@@ -17,6 +18,7 @@ class InputBox extends React.Component {
   render() {
     return (
       <section className="input-box-container">
+        <Header/>
         <MessagesContainer />
         <Switcher />
       </section>

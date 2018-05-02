@@ -1,21 +1,13 @@
-// import Config from './../config'
-import axios from 'axios';
-
-export const TRIGGER_SEARCH = 'TRIGGER_SEARCH';
-export function receiveProducts(items, setDefault) {
-  const st = {
-    type: TRIGGER_SEARCH,
-    items,
-  };
-  if (setDefault) {
-    st.defaultItems = items;
-  }
-  return st;
-}
+import {receiveMessage} from "./index";
 
 export function triggerSearch(query) {
-  return (dispatch) => {
-    console.log('triggerSearch');
+  return (dispatch, getState) => {
+    console.log('triggerSearch', query);
+    if (query.toLowerCase() === 'hello') {
+      setTimeout(() => {
+        dispatch(receiveMessage({text: 'Hi! How are you doing?', author: 'computer'}))
+      }, 1000);
+    }
     // dispatch(setLoader(true));
     // axios.get(`${Config.productsApiUrl}/bins/17p5d5`)
     //   .then((response) => {

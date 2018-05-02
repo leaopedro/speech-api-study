@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react';
-import SpeechUtil from './../../Util/SpeechUtil';
+import React from 'react';
 import './style.less';
 
 class MicInput extends React.Component {
@@ -21,7 +20,7 @@ class MicInput extends React.Component {
 
   recResult(query) {
     if (query) {
-      this.props.triggerSearch(query);
+      this.props.receiveUserMessage(query);
     }
     this.setState({isRecording: false});
   }
@@ -31,7 +30,7 @@ class MicInput extends React.Component {
     return (
       <div className={`mic-input-container ${recClass}`}>
         <div className='mic-button rounded-circle' onClick={this.startRec}>
-          <i className="fas fa-microphone"></i>
+          <i className="fas fa-microphone"> </i>
         </div>
       </div>
     );
