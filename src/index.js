@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
-import App from './components/App';
+import App from './components/App.jsx';
 
 const store = createStore(
   rootReducer,
@@ -14,5 +14,5 @@ const store = createStore(
 
 render(
   <App store={store} />,
-  document.getElementById('app')
+  document.getElementById('app-container')
 );

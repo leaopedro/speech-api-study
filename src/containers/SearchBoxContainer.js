@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import SearchBox from '../components/InputBox';
-//import { } from '../actions';
+import SearchBox from '../components/InputBox/index.jsx';
 
 
 function mapStateToProps(state) {

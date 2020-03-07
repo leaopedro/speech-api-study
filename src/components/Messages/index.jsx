@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
-import MessageItem from './MessageItem';
+import React from 'react';
+import PropTypes from 'prop-types';
+import MessageItem from './MessageItem.jsx';
 import './style.less';
 
 class Messages extends React.Component {

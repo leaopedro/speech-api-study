@@ -6,7 +6,6 @@ class Suggestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log('TA AQUE FDP');
     this.getSuggestions = this.getSuggestions.bind(this);
   }
 
@@ -18,7 +17,6 @@ class Suggestions extends React.Component {
       'I love you'
     ];
     return sugs.map((s, i) => {
-      console.log(s);
       return (<div className='suggestion' key={i}>{s}</div>);
     });
   }
