@@ -1,6 +1,6 @@
 import React from 'react';
 import Switcher from './../Switcher';
-import MessagesContainer from './../../containers/MessagesContainer';
+import MessagesContainer from './../../containers/MessagesContainer.js';
 import Header from './../Header';
 
 import './style.less';

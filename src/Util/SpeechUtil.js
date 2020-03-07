@@ -1,6 +1,7 @@
 
 class SpeechUtil {
   constructor() {
+    console.log("SpeechUtil -> constructor -> 'SpeechUtil'", 'SpeechUtil')
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
     const self = this;
     this.lastQuery = '';

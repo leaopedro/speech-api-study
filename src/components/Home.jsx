@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBoxContainer from './../containers/SearchBoxContainer';
+import SearchBoxContainer from './../containers/SearchBoxContainer.js';
 
 import './../style/main.less';
 
