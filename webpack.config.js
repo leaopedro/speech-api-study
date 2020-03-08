@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-var path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+var path = require("path");
 
 module.exports = {
   module: {
@@ -37,15 +38,21 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
+      template: path.join(__dirname, "src/index.html"),
+      filename: "index.html"
+    }),
+    new CopyPlugin([
+      {
+        from: path.join(__dirname, "src/static"),
+        to: path.join(__dirname, "dist/static")
+      }
+    ])
   ],
   resolve: {
     extensions: [".js", ".jsx", ".less"]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 9000
   }

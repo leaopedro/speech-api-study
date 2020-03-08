@@ -1,6 +1,7 @@
 .suggestions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   .suggestion {
     border: 1.4px solid #fff;
     padding: 5px 10px;
@@ -9,8 +10,10 @@
     border-radius: 20px;
     color: #fff;
     margin: 10px 2.5px;
+    white-space: nowrap;
     cursor: pointer;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: #fff;
       color: #da5789;
     }

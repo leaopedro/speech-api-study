@@ -1,52 +1,39 @@
-import React from 'react';
-import './style.less';
+import React, { useState } from "react";
+import "./style.less";
 
-class KeyboardInput extends React.Component {
+const KeyboardInput = ({ receiveUserMessage }) => {
+  const [query, setQuery] = useState("");
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-    };
+  const onChangeField = e => setQuery(e.target.value);
 
-    this.onChangeField = this.onChangeField.bind(this);
-    this.sendMessage = this.sendMessage.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
-  }
-
-  onChangeField(e) {
-    const val = e.target.value;
-    this.setState({ query: val });
-  }
-
-  onKeyUp(e) {
+  const onKeyUp = e => {
     if (e.keyCode === 13) {
-      this.sendMessage();
+      sendMessage();
     }
-  }
-  sendMessage() {
-    if (this.state.query !== '') {
-      this.props.receiveUserMessage(this.state.query);
-      this.setState({query: ''});
+  };
+
+  const sendMessage = () => {
+    if (query !== "") {
+      receiveUserMessage(query);
+      setQuery("");
     }
-  }
-
-  render() {
-    return (
-      <div className="keyboard-input-container">
-        <input className='keyboard-input' type='text' value={this.state.query} onChange={this.onChangeField}
-               onKeyUp={this.onKeyUp}/>
-        <button className='send-btn' onClick={this.sendMessage}>
-          <i className="fas fa-caret-right"> </i>
-        </button>
-      </div>
-    );
-  }
-
-}
-
-KeyboardInput.propTypes = {
-
+  };
+  return (
+    <div className="keyboard-input-container">
+      <input
+        className="keyboard-input"
+        type="text"
+        value={query}
+        onChange={onChangeField}
+        onKeyUp={onKeyUp}
+      />
+      <button className="send-btn" onClick={sendMessage}>
+        <i className="fas fa-caret-right"> </i>
+      </button>
+    </div>
+  );
 };
+
+KeyboardInput.propTypes = {};
 
 export default KeyboardInput;
