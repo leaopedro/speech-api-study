@@ -1,13 +1,14 @@
-import React from 'react';
-import SearchBoxContainer from './../containers/SearchBoxContainer.js';
+import React from "react";
+import MessagesContainer from "../containers/MessagesContainer.js";
+import SwitcherContainer from "../containers/SwitcherContainer.js";
 
-import './../style/main.less';
+import "./Home.less";
 
 const Home = () => {
-
-    return (
+  return (
     <div className="home">
-      <SearchBoxContainer />
+      <MessagesContainer />
+      <SwitcherContainer />
     </div>
   );
 };

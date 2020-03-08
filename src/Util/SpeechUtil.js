@@ -1,20 +1,17 @@
-
 class SpeechUtil {
   constructor() {
-    console.log("SpeechUtil -> constructor -> 'SpeechUtil'", 'SpeechUtil')
-    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+    console.log("SpeechUtil -> constructor -> 'SpeechUtil'", "SpeechUtil");
+    window.SpeechRecognition =
+      window.webkitSpeechRecognition || window.SpeechRecognition;
     const self = this;
-    this.lastQuery = '';
+    this.lastQuery = "";
     this.isRecording = false;
     this.queryHistory = [];
-    this.sound = document.querySelector('.sound.rec');
     this.recognition = new SpeechRecognition();
-    this.recognition.onend = () => {
-      self.isRecording = false;
-    };
   }
 
   stopRecognition(getResult) {
+    console.log("SpeechUtil -> stopRecognition -> stopRecognition");
     if (this.isRecording) {
       if (getResult) {
         this.recognition.stop();
@@ -25,20 +22,23 @@ class SpeechUtil {
   }
 
   startRecognition(onResult) {
+    console.log("SpeechUtil -> startRecognition -> startRecognition");
     if (this.isRecording) return;
+    const sound = document.querySelector(".sound.rec");
+    if (sound && sound.play) sound.play();
     const self = this;
-    this.sound.play();
-    this.recognition.onresult = (event)=> {
-      console.log('onresult');
+    const end = event => {
       self.lastQuery = event.results[0][0].transcript;
       self.queryHistory.push(self.lastQuery);
       this.isRecording = false;
       onResult(self.lastQuery);
     };
+    this.recognition.onend = end;
+    this.recognition.onresult = end;
     this.isRecording = true;
     this.recognition.start();
+    return { stop: this.stopRecognition };
   }
-
 }
 
 export default SpeechUtil;

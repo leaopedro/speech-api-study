@@ -1,6 +1,5 @@
-import { connect } from 'react-redux';
-import Messages from '../components/Messages';
-
+import { connect } from "react-redux";
+import Messages from "../components/Messages";
 
 function mapStateToProps(state) {
   return {
@@ -10,11 +9,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-//        onAddSubreddit: (subreddit) => {
-//            dispatch(addSubreddit(subreddit));
-//        },
-  }
+  return {};
 }
 
 const MessagesContainer = connect(
@@ -22,4 +17,4 @@ const MessagesContainer = connect(
   mapDispatchToProps
 )(Messages);
 
-export default MessagesContainer
+export default MessagesContainer;
